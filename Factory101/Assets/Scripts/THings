@@ -1,3 +1,9 @@
 We need raw materials, materials and products. All of them are produced things.
 When we are producing thing, we need to control producer's own storage. If there is enough resource to produce things, then it produce.,
 When the car arrives, it's own amount of materials will be stored in this building by increasing amount by that amount.
+If the collided object is the real home of the vehicle,
+it starts to fill its storage. If it is the target, then
+it deploy.
+*--* We need to arrange contracts.
+        Contracts are the most important things in this game.
+         
