@@ -9,6 +9,10 @@ public class Produce : MonoBehaviour
     public float producingCreateAmount;
     float resA;
     float resB;
+
+    public int producerType;
+    public FactoryResources fr;
+    //0= excavator, 1= processor, 2= exporter
     void Start()
     {
         str=GetComponent<Storage>();
@@ -16,17 +20,18 @@ public class Produce : MonoBehaviour
     }
     public void ProduceThings()
     {
-
-        Debug.Log("P1 works");
         if (str.resA >= producingSpendAmount)
         {
-            Debug.Log("P2 works");
-
             str.resA-= producingSpendAmount;
-            str.resB+= producingCreateAmount;
-
-            Debug.Log("resA:" + str.resA);
-
+            if (producerType==2)
+            {
+                fr.money += producingCreateAmount;
+            }
+            else
+            {
+                Debug.Log("Else must be working");
+                str.resB+= producingCreateAmount;
+            }
         }
     }
 }
