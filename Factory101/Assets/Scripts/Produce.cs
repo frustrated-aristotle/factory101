@@ -13,6 +13,8 @@ public class Produce : MonoBehaviour
     public int producerType;
     public FactoryResources fr;
     //0= excavator, 1= processor, 2= exporter
+    
+    public ContractArranger contractArranger;
     void Start()
     {
         str=GetComponent<Storage>();
@@ -26,10 +28,18 @@ public class Produce : MonoBehaviour
             if (producerType==2)
             {
                 fr.money += producingCreateAmount;
+                //If goods is exported, we need to say here that we exported that much goods.
+                Debug.Log("delivered goods amount is: " + contractArranger.sellectedContract.deliveredGoods);
+                contractArranger.sellectedContract.deliveredGoods += producingCreateAmount;
+
+                if(contractArranger.sellectedContract.deliveredGoods >= contractArranger.sellectedContract.orderedGoods)
+                {
+                    Debug.Log("Contract is completed.");
+                    contractArranger.sellectedContract=null;
+                }
             }
             else
             {
-                Debug.Log("Else must be working");
                 str.resB+= producingCreateAmount;
             }
         }

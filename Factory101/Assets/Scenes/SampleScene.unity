@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6501f80b7c9ed45844b5e532c8a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRoadBuilding: 0
   rb: {fileID: 1796452572}
 --- !u!114 &133964127
 MonoBehaviour:
@@ -209,6 +210,7 @@ MonoBehaviour:
   producingCreateAmount: 50
   producerType: 2
   fr: {fileID: 1091137569}
+  contractArranger: {fileID: 1952592267}
 --- !u!212 &133964129
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -313,6 +315,36 @@ PolygonCollider2D:
       - {x: -0.005, y: 0.049999997}
       - {x: 0.085, y: -0.12}
       - {x: -0.085, y: -0.12}
+--- !u!1 &189574847
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 189574848}
+  m_Layer: 0
+  m_Name: Roads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &189574848
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 189574847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.049359135, y: -0.47111043, z: -0.5974486}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459645779
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &459645780
 Rigidbody2D:
   serializedVersion: 4
@@ -696,7 +728,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1796452571}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &555565403
 GameObject:
@@ -822,6 +854,110 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: {fileID: 1502284603}
+--- !u!1 &783976548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783976549}
+  - component: {fileID: 783976550}
+  m_Layer: 0
+  m_Name: Contract1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &783976549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783976548}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.177683, y: -0.58023334, z: -1.3898482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1952592263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &783976550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783976548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdb3684c88de3d4c8e3a34bd00c011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderedGoods: 0
+  deliveredGoods: 0
+  deliverTime: 10
+  baseOrderedGoods: 500
+  baseDeliverTime: 10
+  baseGain: 0
+  additionalAmount: 0
+  type: 1
+  isSellected: 0
+--- !u!1 &1077990076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077990077}
+  - component: {fileID: 1077990078}
+  m_Layer: 0
+  m_Name: Contract2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077990077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077990076}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.177683, y: -0.58023334, z: -1.3898482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1952592263}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077990078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077990076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdb3684c88de3d4c8e3a34bd00c011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderedGoods: 0
+  deliveredGoods: 0
+  deliverTime: 10
+  baseOrderedGoods: 500
+  baseDeliverTime: 10
+  baseGain: 0
+  additionalAmount: 0
+  type: 2
+  isSellected: 0
 --- !u!1 &1091137568
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +1046,7 @@ GameObject:
   - component: {fileID: 1122303785}
   - component: {fileID: 1122303790}
   - component: {fileID: 1122303789}
+  - component: {fileID: 1122303791}
   m_Layer: 0
   m_Name: Excavator1
   m_TagString: Building
@@ -947,6 +1084,7 @@ MonoBehaviour:
   producingCreateAmount: 3
   producerType: 1
   fr: {fileID: 0}
+  contractArranger: {fileID: 0}
 --- !u!212 &1122303787
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1050,6 +1188,72 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &1122303791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122303784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6501f80b7c9ed45844b5e532c8a1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRoadBuilding: 0
+  rb: {fileID: 1796452572}
+--- !u!1 &1296470631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296470632}
+  - component: {fileID: 1296470633}
+  m_Layer: 0
+  m_Name: Contract3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296470632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296470631}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.177683, y: -0.58023334, z: -1.3898482}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1952592263}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296470633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296470631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbdb3684c88de3d4c8e3a34bd00c011a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderedGoods: 0
+  deliveredGoods: 0
+  deliverTime: 10
+  baseOrderedGoods: 500
+  baseDeliverTime: 10
+  baseGain: 0
+  additionalAmount: 0
+  type: 3
+  isSellected: 0
 --- !u!1 &1502284603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1306,7 @@ MonoBehaviour:
   producingCreateAmount: 10
   producerType: 1
   fr: {fileID: 0}
+  contractArranger: {fileID: 0}
 --- !u!212 &1502284606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1217,6 +1422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc6501f80b7c9ed45844b5e532c8a1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRoadBuilding: 1
   rb: {fileID: 1796452572}
 --- !u!1 &1796452568
 GameObject:
@@ -1273,6 +1479,7 @@ Transform:
   m_LocalPosition: {x: 3.2398963, y: 0.60069805, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1952592263}
   - {fileID: 553245096}
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1293,7 +1500,59 @@ MonoBehaviour:
   target: {fileID: 0}
   addPos: {x: 0, y: 0, z: 0}
   areRoadsCompleted: 0
+  roads: []
   lr: {fileID: 553245095}
+  roadTemplate: {fileID: 8782221059077123495, guid: 299d9409674293140a27b025260ff805, type: 3}
+--- !u!1 &1952592262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1952592263}
+  - component: {fileID: 1952592267}
+  m_Layer: 0
+  m_Name: ContractArranger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1952592263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952592262}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.9871454, y: -0.4915751, z: 0.79239964}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 783976549}
+  - {fileID: 1077990077}
+  - {fileID: 1296470632}
+  m_Father: {fileID: 1796452571}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952592267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952592262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3287266475621f042bb2a7a8121971d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c1: {fileID: 783976550}
+  c2: {fileID: 1077990078}
+  c3: {fileID: 1296470633}
+  sellectedContract: {fileID: 0}
 --- !u!1 &2096916455
 GameObject:
   m_ObjectHideFlags: 0

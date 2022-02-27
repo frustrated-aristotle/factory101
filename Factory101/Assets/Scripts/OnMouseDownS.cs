@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class OnMouseDownS : MonoBehaviour
 {
+    public bool isRoadBuilding;
     public RoadBuilder rb;
+
+    public GameObject[] pairs;
+    public GameObject pair1;
+    public GameObject pair2;
+    public GameObject pair3;
+    public GameObject pair4;
+
+    public int pairIndex=0;
+
+    void Start()
+    {
+        pairs = new GameObject[4];
+    }
+
     // Start is called before the first frame update
     void OnMouseDown()
     {
-        //If it is for creating roads:
-        if(rb.home==null)
+       // if(isRoadBuilding)
         {
-            rb.home=this.gameObject;
+            //If it is for creating roads:
+            if(rb.home==null)
+            {
+                rb.home=this.gameObject;
+            }
+            else if(rb.target==null /*&& this != rb.home*/)
+            {
+                rb.target=this.gameObject;
+                rb.BuildRoads();
+                ClearNodes();
+            }
         }
-        else if(rb.target==null)
-        {
-            rb.target=this.gameObject;
-            rb.BuildRoads();
-            ClearNodes();
-        }
+
     }
     void ClearNodes()
     {
