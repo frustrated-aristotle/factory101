@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public float cost;
     public float upkeepCost;
-    public GameObject playerAsFactory;
+    public FactoryResources playerAsFactory;
     void Start()
     {
+        playerAsFactory = GameObject.Find("Factory").GetComponent<FactoryResources>();
         InvokeRepeating("Upkeep", 0f, 1f);
     }
     void Upkeep()
     {
-        playerAsFactory.GetComponent<FactoryResources>().money -= upkeepCost;
+        playerAsFactory.money -= upkeepCost;
     }
 }

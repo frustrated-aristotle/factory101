@@ -29,7 +29,6 @@ public class Produce : MonoBehaviour
             {
                 fr.money += producingCreateAmount;
                 //If goods is exported, we need to say here that we exported that much goods.
-                Debug.Log("delivered goods amount is: " + contractArranger.sellectedContract.deliveredGoods);
                 contractArranger.sellectedContract.deliveredGoods += producingCreateAmount;
 
                 if(contractArranger.sellectedContract.deliveredGoods >= contractArranger.sellectedContract.orderedGoods)
