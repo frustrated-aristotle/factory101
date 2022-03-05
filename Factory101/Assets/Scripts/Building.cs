@@ -10,7 +10,7 @@ public class Building : MonoBehaviour
     void Start()
     {
         playerAsFactory = GameObject.Find("Factory").GetComponent<FactoryResources>();
-        InvokeRepeating("Upkeep", 0f, 1f);
+        InvokeRepeating("Upkeep", 60f, 60f);
     }
     void Upkeep()
     {

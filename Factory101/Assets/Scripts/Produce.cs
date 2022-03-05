@@ -17,6 +17,8 @@ public class Produce : MonoBehaviour
     public ContractArranger contractArranger;
     void Start()
     {
+        fr=GameObject.Find("Factory").GetComponent<FactoryResources>();
+        contractArranger=GameObject.FindGameObjectWithTag("Contract Arranger").GetComponent<ContractArranger>();
         str=GetComponent<Storage>();
         InvokeRepeating("ProduceThings", 0f, 1f);
     }

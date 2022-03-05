@@ -20,10 +20,14 @@ public class OnMouseDownS : MonoBehaviour
         pairs = new GameObject[4];
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R)){isRoadBuilding=true;}
+    }
     // Start is called before the first frame update
     void OnMouseDown()
     {
-       // if(isRoadBuilding)
+        //if(isRoadBuilding)
         {
             //If it is for creating roads:
             if(rb.home==null)

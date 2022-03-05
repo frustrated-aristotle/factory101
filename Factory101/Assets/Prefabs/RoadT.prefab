@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 388664798822381391}
   - component: {fileID: 8782221059077123495}
+  - component: {fileID: 876839197076087930}
+  - component: {fileID: -8527302652199965375}
   m_Layer: 0
   m_Name: RoadT
-  m_TagString: Untagged
+  m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,3 +132,30 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &876839197076087930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388664798822381390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b752e2a301bb245b4f6fde6c6fbcd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  home: {fileID: 0}
+--- !u!114 &-8527302652199965375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388664798822381390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87de954de40f9b743ab0a70c0ce8779d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRoadBuildingNow: 0

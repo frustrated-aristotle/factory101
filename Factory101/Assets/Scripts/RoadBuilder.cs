@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class RoadBuilder : MonoBehaviour
 {
     //* to gameManager
@@ -16,28 +16,31 @@ public class RoadBuilder : MonoBehaviour
     
     private int roadIndex=0;
     public LineRenderer roadTemplate;
+    LineRenderer roadToBuild;
 
     //We are going to deal with it by using instantia method. we need to make roads prefabs that includes their own line renderer. 
 
     void Start()
     {        
+        roadToBuild = roadTemplate;
     }
     public void BuildRoads()
     {
-        Debug.Log("Working BUidlrossd");
+             //The vehicle will be placed on a road. So each road need a mainTarget and 
         if(!PairChecker(target.GetComponent<OnMouseDownS>().pairs, home))
         {
             lr.SetPosition(0, home.transform.position);
+            lr.GetComponent<Road>().home=home;
             lr.SetPosition(1, target.transform.position);
+            lr.GetComponent<Road>().target=target;
             AttachPairs();
             CreateNewLiner();
         }
     }
     void CreateNewLiner()
     {
-        Instantiate(roadTemplate, Vector3.zero, Quaternion.identity);
+        Instantiate(roadToBuild, Vector3.zero, Quaternion.identity);
         lr=roadTemplate;
-        roadTemplate.transform.parent=roads.transform;
     }
 
     void AttachPairs()

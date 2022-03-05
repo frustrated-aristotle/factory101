@@ -25,30 +25,14 @@ public class VehicleMovement : MonoBehaviour
     void Update()
     {
         transform.position= Vector3.MoveTowards(transform.position, target.transform.position, Time.deltaTime * speed);
-
-        /* 0
-        Vector2 moveInput = new Vector2(target.transform.position.x, target.transform.position.y);
-        moveVelocity = moveInput * speed;
-        */
-
-        /* 1--
-        Vector2 target2d= new Vector2(target.transform.position.x, target.transform.position.y);
-        Vector2 vehicle2d = new Vector2(transform.position.x, transform.position.y);
-        rb.AddForce(target2d * Time.deltaTime *speed* -1);
-        */
-
-        /* 2--
-        moveDir=target.transform.position - transform.position;
-        this.transform.Translate(moveDir * speed * Time.deltaTime);
-        */
     }
-
-    /*
-    void FixedUpdate()
+    void OnCollisionEnter2D(Collision2D col)
     {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
+        if(col.gameObject.tag == "Road")
+        {
+            Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
+        }
     }
-    */
 
     public void ChangeTarget()
     {
