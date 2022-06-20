@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 74779336955834959}
   m_Layer: 0
   m_Name: Transport Vehicle
-  m_TagString: Untagged
+  m_TagString: Vehicle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03be0386428cf9f4798478f553dbd99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resA: 0
-  resB: 0
+  input: 0
+  output: 0
 --- !u!114 &74779336955834958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,10 +117,18 @@ MonoBehaviour:
   home: {fileID: 0}
   target: {fileID: 0}
   helder: {fileID: 0}
+  helderForCheckReals: {fileID: 0}
   realHome: {fileID: 0}
   realTarget: {fileID: 0}
   speed: 1
+  moveSpeed: 0
+  cost: 500
+  level: 1
+  isCreatedFirstTime: 1
+  canMove: 1
+  isLoaded: 1
   moveVelocity: {x: 0, y: 0}
+  imp: {fileID: 11400000, guid: 63b65a6c5623da0499462a271e03d416, type: 2}
 --- !u!114 &74779336955834946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b616ad499d7d21842bd4e2c5e03e77ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canStore: 20
-  stored: 50
+  canStore: 30
+  stored: 0
+  isStoring: 0
 --- !u!58 &74779336955834945
 CircleCollider2D:
   m_ObjectHideFlags: 0

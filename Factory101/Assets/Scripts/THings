@@ -6,4 +6,31 @@ it starts to fill its storage. If it is the target, then
 it deploy.
 *--* We need to arrange contracts.
         Contracts are the most important things in this game.
-         
+
+Exporting is really important.
+
+
+We need to calculate which inst pos is closer than other one.
+
+Adding a remove thing
+
+Move:
+First Created
+        It must behave normal.
+Other Iterations
+        In other iterations, it must work in a specialized way.
+        If there is no any vehicle that is storing things from that bulding which is the vehicle's main home;
+                It must go to the filling phase.
+                The vehicle stores things gameObject in the Building's cs must be equal to this gO.
+                        In the filling phase
+                                isStoring boolean must be true. Because building is Filling
+                        There can be two scenario
+                                Vehicle can store all of the components
+                                        Vehicle can move.
+                                        Building's store vehicle equal to null, is storing can be false;
+                                        Normal filling stuffs. 
+                                Vehicle can wait to store all of the components
+                                        Vehcile can not move.
+                                        If the capacity is fulfilled, bulding's store veh. equal to null.
+                                                isStoring can be false;
+                                        Filling stuffs for it. 

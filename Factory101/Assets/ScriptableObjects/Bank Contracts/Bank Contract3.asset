@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 479e8a7059f57b54da4d486d58d92957, type: 3}
+  m_Name: Bank Contract3
+  m_EditorClassIdentifier: 
+  moneyToTake: 30000
+  moneyToPay: 2
+  baseTimeToPay: 60
+  timeToPay: 0
+  interestOverMainMoney: 1.5
+  typeOfBanckContract: 3
+  canSellectable: 1

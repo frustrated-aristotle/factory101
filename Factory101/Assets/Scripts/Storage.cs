@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Storage : MonoBehaviour
 {
-    public float resA;
-    public float resB;
+    public float input;
+    public float output;
 }

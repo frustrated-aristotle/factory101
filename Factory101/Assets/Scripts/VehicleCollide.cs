@@ -8,33 +8,50 @@ public class VehicleCollide : MonoBehaviour
     public float canStore=20;
     public float stored;
 
+    public bool isStoring=false;
+
+    private Building b;
     private Collision2D lastCol;
     
     private VehicleMovement vehicleMovement;
+
     void Start()
     {
+        b=GetComponent<Building>();
         vehicleMovement=GetComponent<VehicleMovement>();
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject == vehicleMovement.realHome)
+        if (col.gameObject == vehicleMovement.realHome )
         {
             Fill(col);
         }
         else if(col.gameObject == vehicleMovement.realTarget)
         {
-            Empty(col);
+            if(vehicleMovement.realTarget.GetComponent<Produce>().producerType - 1== vehicleMovement.realHome.GetComponent<Produce>().producerType)
+            {
+                CheckIfItIsFirstCreated();
+                Empty(col);
+            }
+            else
+            Debug.Log("Else is working now");
         }
-        if(col.gameObject.tag == "Building" /*&& col != lastCol*/)
+        if(col.gameObject.tag == "Building" || col.gameObject.tag == "Exporter")
         {
             ChangeTarget();       
         }
         col=lastCol;
     }
 
+    private void CheckIfItIsFirstCreated()
+    {
+        if(vehicleMovement.isCreatedFirstTime)
+        vehicleMovement.UnignoreTheCollider();
+        vehicleMovement.isCreatedFirstTime = false;
+    }
+
     public void ChangeTarget()
     {
-        //transform.localRotation= new Quaternion(0,180,0, 0);
         vehicleMovement.helder=vehicleMovement.target;
         vehicleMovement.target=vehicleMovement.home;
         vehicleMovement.home=vehicleMovement.helder;
@@ -42,43 +59,31 @@ public class VehicleCollide : MonoBehaviour
 
     private void Empty(Collision2D col)
     {
-        //If we want an unlimited storage, then this is okay but if is not, we need to change it.
-        col.gameObject.GetComponent<Storage>().resA += stored;
+        col.gameObject.GetComponent<Storage>().input += stored;
         stored = 0;
     }
     private void Fill(Collision2D col)
     {
-        /*
-            We need to store all the produced things in vehicle.
-                If there is more resB than the amount of vehicle can store
-                    the vehicle stores as its maximum storage cappacity
-                    Decrease that exact amount from producer.
-                If there is less resB than the amoun to vehicle can store
-                    the vehilce stores that certain amount.
-                    Decrease that exact amount from producer.
-        */
-        if(col.gameObject.GetComponent<Storage>().resB > canStore)
+        if(col.gameObject.GetComponent<Storage>().output >= canStore)
+        {
+            col.gameObject.GetComponent<Storage>().output -= canStore;
+            stored = canStore;
+        }
+        else
+        {
+            stored = col.gameObject.GetComponent<Storage>().output;
+            col.gameObject.GetComponent<Storage>().output = 0;
+        }
+       /* if(col.gameObject.GetComponent<Storage>().resB > canStore)
         {
             stored=canStore;
-            col.gameObject.GetComponent<Storage>().resB -= canStore;  
-            //There is some shit corpes.
-            {/*
-            //col.gameObject.GetComponent<Storage>().resB -= stored;
-            if(canStore >= col.gameObject.GetComponent<Storage>().resB)
-            {
-                stored= col.gameObject.GetComponent<Storage>().resB;
-            }
-            else
-            {
-                //It stores the maximum amount of thing that a vehicle can store.
-                stored=canStore;
-            }
-            */}
+            col.gameObject.GetComponent<Storage>().resB -= canStore;
         }
         else
         {
             stored+=col.gameObject.GetComponent<Storage>().resB;
             col.gameObject.GetComponent<Storage>().resB -= stored;
         }
+        */      
     }
 }

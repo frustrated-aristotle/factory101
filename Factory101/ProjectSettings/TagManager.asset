@@ -7,11 +7,14 @@ TagManager:
   - Building
   - Contract Arranger
   - Road
+  - Vehicle
+  - Exporter
+  - Tile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Lr
   - Water
   - UI
   - 

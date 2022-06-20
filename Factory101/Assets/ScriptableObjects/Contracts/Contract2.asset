@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb084266bcb43304baeed341fe226b7f, type: 3}
+  m_Name: Contract2
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  contractName: 
+  orderedGoods: 3750
+  deliverTime: 187
+  gain: 4681
+  faul: 9277
+  baseOrderedGoods: 1500
+  baseDeliverTime: 60
+  baseGain: 2000
+  baseFaul: 4000
+  deliveredGoods: 0
+  type: 2
+  contractsCmpltd: 0
+  isSellected: 0
+  isDelivered: 0
+  isContractFulfilled: 0
+  nameTxt: {fileID: 0}
+  goodsTxt: {fileID: 0}
+  deliverTimeTxt: {fileID: 0}
+  gainAndFaulTxt: {fileID: 0}
+  deliveredGoodsTxt: {fileID: 0}
+  fr: {fileID: 0}
+  ca: {fileID: 0}
+  rndz: {fileID: 0}

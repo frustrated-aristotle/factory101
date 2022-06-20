@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 8782221059077123495}
   - component: {fileID: 876839197076087930}
   - component: {fileID: -8527302652199965375}
-  m_Layer: 0
+  - component: {fileID: -7676888730978150448}
+  m_Layer: 3
   m_Name: RoadT
   m_TagString: Road
   m_Icon: {fileID: 0}
@@ -29,7 +30,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1616281098295848747}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -75,8 +77,8 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 7.19, y: 0.05, z: 0}
-  - {x: -4.41, y: -0.01, z: 0}
+  - {x: 5, y: 2, z: -3}
+  - {x: 2, y: 2, z: -3}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -126,11 +128,11 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 0
+    alignment: 1
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
+  m_UseWorldSpace: 0
   m_Loop: 0
 --- !u!114 &876839197076087930
 MonoBehaviour:
@@ -146,7 +148,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   home: {fileID: 0}
+  instHomePos1: {fileID: 0}
+  instHomePos2: {fileID: 0}
+  child: {fileID: 2494022256935141861}
+  points: []
 --- !u!114 &-8527302652199965375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388664798822381390}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87de954de40f9b743ab0a70c0ce8779d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addtVector3Val: 0.2
+  vehicle: {fileID: 74779336955834952, guid: 5334704a558a2a14c98c2e5c76a61d0f, type: 3}
+  road: {fileID: 876839197076087930}
+--- !u!114 &-7676888730978150448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -155,7 +176,78 @@ MonoBehaviour:
   m_GameObject: {fileID: 388664798822381390}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e549b340505c8ae43a6877bd44a64e6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lr: {fileID: 8782221059077123495}
+  SortingLayer: Lr
+  OrderInLayer: 0
+--- !u!1 &2494022256935141861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616281098295848747}
+  - component: {fileID: 5093399546802369253}
+  - component: {fileID: 6913646438135178658}
+  m_Layer: 3
+  m_Name: Collider
+  m_TagString: Road
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1616281098295848747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494022256935141861}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 388664798822381391}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!68 &5093399546802369253
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494022256935141861}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.15
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 1
+  m_UseAdjacentEndPoint: 1
+--- !u!114 &6913646438135178658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2494022256935141861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87de954de40f9b743ab0a70c0ce8779d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isRoadBuildingNow: 0
+  addtVector3Val: 0.2
+  vehicle: {fileID: 74779336955834952, guid: 5334704a558a2a14c98c2e5c76a61d0f, type: 3}
+  road: {fileID: 876839197076087930}
