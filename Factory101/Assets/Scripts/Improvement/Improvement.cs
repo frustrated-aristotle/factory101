@@ -20,7 +20,7 @@ public class Improvement : ScriptableObject , IPayment
     Building[] buildings;
     ImprovementMainHandler impMH;
     VehicleMovement[] vehicles;
-    Produce p;
+    Producer p;
     public FactoryResources fr;
 
     public void IncreaseCar()

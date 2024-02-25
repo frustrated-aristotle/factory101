@@ -14,10 +14,7 @@ public class StateSO : ScriptableObject
         panel = FindObjectOfType<UIManager>().GetPanel(type);
         if (panel)
         {
-            Debug.Log("Panel name: "+ panel.name);
             panel.SetActive(false);
-            Debug.Log(panel.activeSelf);
-            
         }
     } 
 

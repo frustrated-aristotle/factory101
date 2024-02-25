@@ -51,9 +51,9 @@ public class Contract : MonoBehaviour
     //We need to assign these other classes on another script that can handle it.
     void Awake()
     {
-        deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<TextMeshProUGUI>();
-        gm = GameObject.Find("GameManager");
-        ca= gm.GetComponent<ContractArranger>();
+//        deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<TextMeshProUGUI>();
+       // gm = GameObject.Find("GameManager");
+//ca= gm.GetComponent<ContractArranger>();
         fr=GameObject.Find("Factory").GetComponent<FactoryResources>();
         rndz= GameObject.Find("GameManager").GetComponent<Randomizer>();
     }

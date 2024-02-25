@@ -96,12 +96,12 @@ public class VehicleMovement : MonoBehaviour
     public void CheckRealHomeAndTarget()
     {
         Debug.Log("Checking");
-        if(realHome.GetComponent<Produce>().producerType > realTarget.GetComponent<Produce>().producerType)
+        /*if(realHome.GetComponent<Producer>().producerType > realTarget.GetComponent<Producer>().producerType)
         {
             helderForCheckReals = realTarget;
             realTarget = realHome;
             realHome=helderForCheckReals;
-        }
+        }*/
     }
 
     public void IncreaseImprovement()

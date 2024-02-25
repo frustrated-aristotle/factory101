@@ -42,8 +42,8 @@ public class UIController : MonoBehaviour
         UIImprovement.SetActive(false);
         UILands.SetActive(false);
         UIEsc.SetActive(false);
-        UITuto = GameObject.Find("Tuto");
-        UITuto.SetActive(true);
+  //      UITuto = GameObject.Find("Tuto");
+//        UITuto.SetActive(true);
     }
 
    /*void Update()

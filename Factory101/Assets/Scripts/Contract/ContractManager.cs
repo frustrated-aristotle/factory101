@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ContractManager : MonoBehaviour
 {
+    
+    /// <summary>
+    /// 
+    /// </summary>
     private float remainingTime;
 
     public  bool isContractSellected;
@@ -25,11 +29,11 @@ public class ContractManager : MonoBehaviour
         ui = GameObject.Find("GameManager").GetComponent<UIController>();
         sellectedContract=null;
         lastSellectedContract=null;
-        remainingTimeTxt = GameObject.Find("DeliverTimeCounter").GetComponent<Text>();
-        deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<Text>();
-        genBehTxt = GameObject.Find("General Case Text").GetComponent<Text>();
-        randomizer = GameObject.FindObjectOfType<Randomizer>();
-        contractUI = GameObject.Find("Contract UI");
+//        remainingTimeTxt = GameObject.Find("DeliverTimeCounter").GetComponent<Text>();
+      //  deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<Text>();
+      //  genBehTxt = GameObject.Find("General Case Text").GetComponent<Text>();
+        //randomizer = GameObject.FindObjectOfType<Randomizer>();
+        //contractUI = GameObject.Find("Contract UI");
     }
 
     // Update is called once per frame

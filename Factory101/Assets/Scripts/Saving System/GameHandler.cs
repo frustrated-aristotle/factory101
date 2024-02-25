@@ -81,8 +81,8 @@ public class GameHandler : MonoBehaviour
     private void SaveBuildings(SaveObject saveObject)
     {
         //*Buildings
-        {
-            Produce[] prd = GameObject.FindObjectsOfType<Produce>();
+        /*{
+            Producer[] prd = GameObject.FindObjectsOfType<Producer>();
             int a=0;
             int b=a;
             int c=a;
@@ -117,7 +117,7 @@ public class GameHandler : MonoBehaviour
                     }
                 }
             }           
-        }
+        }*/
     }
 
     private void SaveVehicles(SaveObject saveObject)
@@ -133,8 +133,8 @@ public class GameHandler : MonoBehaviour
             Array.Resize(ref saveObject.realHome, saveObject.vehicleAmount);
             Array.Resize(ref saveObject.realTarget, saveObject.vehicleAmount);
             saveObject.vehPos[i]=v.transform.position;
-            saveObject.realHome[i]=v.GetComponent<VehicleMovement>().realHome.GetComponent<Produce>().id;
-            saveObject.realTarget[i]=v.GetComponent<VehicleMovement>().realTarget.GetComponent<Produce>().id;
+            //saveObject.realHome[i]=v.GetComponent<VehicleMovement>().realHome.GetComponent<Producer>().id;
+            //saveObject.realTarget[i]=v.GetComponent<VehicleMovement>().realTarget.GetComponent<Producer>().id;
             i++;
             Debug.Log("sdss");
         }
@@ -182,8 +182,8 @@ public class GameHandler : MonoBehaviour
             for (int i = 0; i < saveObject.buildingAmount; i++)
             {
                 //vehPref = GameObject.Find("Game").GetComponent<Holder>().v;
-                Produce[] prdc = GameObject.FindObjectsOfType<Produce>();
-                foreach (var p in prdc)
+                Producer[] prdc = GameObject.FindObjectsOfType<Producer>();
+                /*foreach (var p in prdc)
                 {
                     Debug.Log("p : " + p.name + "p's id: " + p.id);
                     if(p.id==saveObject.realHome[i])
@@ -197,7 +197,7 @@ public class GameHandler : MonoBehaviour
                         vehPref.GetComponent<VehicleMovement>().realTarget=p.gameObject;
                     }
 
-                }
+                }*/
                 vehPref.GetComponent<VehicleMovement>().isLoaded = true;
                 Instantiate(vehPref, saveObject.vehPos[i], Quaternion.identity);
             }
@@ -209,7 +209,7 @@ public class GameHandler : MonoBehaviour
         int a=0;
         int b=0;
         int c=0;
-        Produce[] producer = GameObject.FindObjectsOfType<Produce>();
+        Producer[] producer = GameObject.FindObjectsOfType<Producer>();
         
         if(producer != null)
         {

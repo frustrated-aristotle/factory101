@@ -20,7 +20,7 @@ public class VehicleCollide : MonoBehaviour
         b=GetComponent<Building>();
         vehicleMovement=GetComponent<VehicleMovement>();
     }
-    void OnCollisionEnter2D(Collision2D col)
+   /* void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject == vehicleMovement.realHome )
         {
@@ -28,7 +28,7 @@ public class VehicleCollide : MonoBehaviour
         }
         else if(col.gameObject == vehicleMovement.realTarget)
         {
-            if(vehicleMovement.realTarget.GetComponent<Produce>().producerType - 1== vehicleMovement.realHome.GetComponent<Produce>().producerType)
+            if(vehicleMovement.realTarget.GetComponent<Producer>().producerType - 1== vehicleMovement.realHome.GetComponent<Producer>().producerType)
             {
                 CheckIfItIsFirstCreated();
                 Empty(col);
@@ -41,7 +41,7 @@ public class VehicleCollide : MonoBehaviour
             ChangeTarget();       
         }
         col=lastCol;
-    }
+    }*/
 
     private void CheckIfItIsFirstCreated()
     {
@@ -59,12 +59,12 @@ public class VehicleCollide : MonoBehaviour
 
     private void Empty(Collision2D col)
     {
-        col.gameObject.GetComponent<Storage>().input += stored;
+        //col.gameObject.GetComponent<Storage>().input += stored;
         stored = 0;
     }
     private void Fill(Collision2D col)
     {
-        if(col.gameObject.GetComponent<Storage>().output >= canStore)
+        /*if(col.gameObject.GetComponent<Storage>().output >= canStore)
         {
             col.gameObject.GetComponent<Storage>().output -= canStore;
             stored = canStore;
@@ -73,7 +73,7 @@ public class VehicleCollide : MonoBehaviour
         {
             stored = col.gameObject.GetComponent<Storage>().output;
             col.gameObject.GetComponent<Storage>().output = 0;
-        }
+        }*/
        /* if(col.gameObject.GetComponent<Storage>().resB > canStore)
         {
             stored=canStore;

@@ -26,7 +26,7 @@ public class FactoryResources : MonoBehaviour
         moneyText.text="Money: " + money.ToString();
     }
 
-    public void FirstCreatedLevel(int type, Produce p)
+    public void FirstCreatedLevel(int type, Producer p)
     {/*
         switch(type)
         {

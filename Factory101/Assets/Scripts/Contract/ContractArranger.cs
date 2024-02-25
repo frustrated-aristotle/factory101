@@ -34,9 +34,9 @@ public class ContractArranger : MonoBehaviour
 
     void Start()
     {
-        genBehTxt = GameObject.Find("General Case Text").GetComponent<TextMeshProUGUI>();
-        remainingTimeTxt = GameObject.Find("DeliverTimeCounter").GetComponent<TextMeshProUGUI>();
-        deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<TextMeshProUGUI>();
+//        genBehTxt = GameObject.Find("General Case Text").GetComponent<TextMeshProUGUI>();
+       // remainingTimeTxt = GameObject.Find("DeliverTimeCounter").GetComponent<TextMeshProUGUI>();
+     //   deliveredGoodsTxt = GameObject.Find("DVTXT").GetComponent<TextMeshProUGUI>();
         sellectedContract = null;
         lastSellectedContract = null;
         gm= GameObject.Find("GameManager");

@@ -13,12 +13,6 @@ public class StateManager : MonoBehaviour
     private void Start()
     {
         idleState = currentState;
-        Debug.Log(states.Count);
-        foreach (var state in states)
-        {
-            Debug.Log("Panel name in state manager: "+state.key);
-            //state.panel.SetActive(false);
-        }
     }
 
     // Update is called once per frame
@@ -29,8 +23,6 @@ public class StateManager : MonoBehaviour
             if (Input.GetKeyDown(state.key))
             {
                 ChangeState(state);
-                //panel.panel.SetActive(true);
-                Debug.Log("Key is pressed: " + state.key);
             }
         }
     }

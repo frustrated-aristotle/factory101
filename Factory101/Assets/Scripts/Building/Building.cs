@@ -20,7 +20,7 @@ public class Building : MonoBehaviour
 
     public  Building b1, b2, b3, b4;
     public  Building[] connectedBuildings = new Building[5]; 
-    private Produce p;
+    private Producer p;
     public  Improvement imp;
     private ImprovementMainHandler impmh;
     public  FactoryResources playerAsFactory;
@@ -34,7 +34,7 @@ public class Building : MonoBehaviour
         imp.fr=playerAsFactory;
         playerAsFactory = GameObject.Find("Factory").GetComponent<FactoryResources>();
         InvokeRepeating("Upkeep", 60f, 60f);
-        p = GetComponent<Produce>();
+        p = GetComponent<Producer>();
     }
 
     public void forText()
@@ -117,12 +117,12 @@ public class Building : MonoBehaviour
         {
             //i.Display(impmh.texts[a], impmh.b[a]);
             Debug.Log("Arkadaşım improvement gerçekleşti.");
-            p= GetComponent<Produce>();
+            p= GetComponent<Producer>();
             //FactoryRes level thing
             IncreaseFactoryResourcesLevel();
             a++;
-            p.spendAmount  *= lvl * 3 / 4;  
-            p.createAmount *= lvl;
+            /*p.spendAmount  *= lvl * 3 / 4;  
+            p.createAmount *= lvl;*/
         }
     }
 }
