@@ -15,7 +15,7 @@ MonoBehaviour:
   dealerName: Wow-haaaaay-tee
   orderedQuantity: 0
   profit: 0
-  loss: 0
+  loss: 150
   dueTime: 3
   type: 0
   dealerNameTxt: {fileID: 0}

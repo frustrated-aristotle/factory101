@@ -84765,6 +84765,19 @@ MonoBehaviour:
   - {fileID: 568542421}
   - {fileID: 1276210205}
   lastDeal: {fileID: 0}
+--- !u!114 &2146251009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128809716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acac28c59aacc4a4386c700554148fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceAmounts: 
 --- !u!1001 &3889151132884371449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85423,6 +85436,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7161259613121182441, guid: 22c29169207cbfb4492cc6d0774e8a12, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2146250999}
+    - targetCorrespondingSourceObject: {fileID: 7161259613121182441, guid: 22c29169207cbfb4492cc6d0774e8a12, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146251009}
   m_SourcePrefab: {fileID: 100100000, guid: 22c29169207cbfb4492cc6d0774e8a12, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
