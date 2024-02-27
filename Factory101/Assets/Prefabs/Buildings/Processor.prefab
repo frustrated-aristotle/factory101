@@ -233,10 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spendAmount: 0
   createAmount: 0
-  producerType: 0
-  gm: {fileID: 0}
-  genBehTxt: {fileID: 0}
   produceTimeRate: 0
+  purchasableType: 1
 --- !u!114 &-1850717739808971216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +247,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03be0386428cf9f4798478f553dbd99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  source: 0
+  outcome: 0

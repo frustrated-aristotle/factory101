@@ -36,7 +36,6 @@ public class DealManager : MonoBehaviour
         remainedTimes.Add(3);
         remainedTimes.Add(5);
         remainedTimes.Add(7);
-        Debug.Log("Count: "+ remainedTimes.Count);
         //Just for try
     }
 
@@ -53,7 +52,6 @@ public class DealManager : MonoBehaviour
             if (deal)
             {
                 int index = (int)deal.type;
-                Debug.Log("index:" + index);
                 remainedTimes[index] -= Time.deltaTime;
                 remainedTimeTxts[index].text = remainedTimes[index].ToString();
                 if ( remainedTimes[index] <= 0)

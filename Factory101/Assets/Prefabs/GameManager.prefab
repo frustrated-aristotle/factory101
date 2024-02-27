@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7161259613121182442}
-  - component: {fileID: 7161259613121182445}
   - component: {fileID: 7161259613121182444}
   - component: {fileID: 4215447548416353573}
   - component: {fileID: 7702509681263172540}
@@ -44,29 +43,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7161259613121182445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7161259613121182441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78cc3abcd51b2b0468335e955357192b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canCreate: 0
-  areRoadsCompleted: 0
-  m: 0
-  addPos: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
-  home: {fileID: 0}
-  roads: {fileID: 0}
-  first: {fileID: 0}
-  second: {fileID: 0}
-  roadTemplate: {fileID: 8782221059077123495, guid: 299d9409674293140a27b025260ff805, type: 3}
-  lr: {fileID: 8782221059077123495, guid: 299d9409674293140a27b025260ff805, type: 3}
 --- !u!114 &7161259613121182444
 MonoBehaviour:
   m_ObjectHideFlags: 0

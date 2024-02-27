@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8527302652199965375}
   - component: {fileID: -7676888730978150448}
   m_Layer: 3
-  m_Name: RoadT
+  m_Name: Road Prefab
   m_TagString: Road
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,10 +77,10 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
-  - {x: 2, y: 2, z: -3}
-  - {x: 5, y: 2, z: -3}
+  - {x: -2, y: -1, z: -1}
+  - {x: 5, y: 0, z: -1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1

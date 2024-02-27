@@ -21,7 +21,7 @@ public class BuyAndPlaceTheBuildings : MonoBehaviour
         uIController = GameObject.FindObjectOfType<UIController>();
     }
 
-    bool isThePlayerCanBuild(TileMainScript tile)
+    bool isThePlayerCanBuild(Tile tile)
     {
 
         if(sellectedBuilding != null &&  GameModeCheck() &&
@@ -52,7 +52,7 @@ public class BuyAndPlaceTheBuildings : MonoBehaviour
     }
 
     //This method will be called when the player clicked an buildable tile.
-    public void BuyAndPlaceTheBuilding(TileMainScript tile)
+    public void BuyAndPlaceTheBuilding(Tile tile)
     {
         //We are paying the money in this boolean isThePla...
         if(isThePlayerCanBuild(tile) && tile.isBuildable && !tile.haveBuilding)

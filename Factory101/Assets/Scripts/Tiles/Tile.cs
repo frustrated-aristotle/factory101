@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TileMainScript : MonoBehaviour
+public class Tile : MonoBehaviour
 {
     //* Tiles have this script. 
     public bool isBuildable;
@@ -19,9 +20,16 @@ public class TileMainScript : MonoBehaviour
     private Renderer rend;
 
     private BuyAndPlaceTheBuildings buyAndPlaceTheBuildings;
-    
+
+
+    private StateManager stateManager;
+    private PurchaseManager purchaseManager;
+
+    public IPurchasable building;
     void Start()
     {
+        purchaseManager = FindObjectOfType<PurchaseManager>();
+        stateManager = FindObjectOfType<StateManager>();
         rend = GetComponent<Renderer>();       
         buyAndPlaceTheBuildings = GameObject.FindObjectOfType<BuyAndPlaceTheBuildings>();
         if(isBuildable)
@@ -40,8 +48,22 @@ public class TileMainScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(buyAndPlaceTheBuildings.GameModeCheck())
-        buyAndPlaceTheBuildings.BuyAndPlaceTheBuilding(this);
+        if (isPurchase() && isBuildable)
+        {
+            purchaseManager.OnTileClicked(transform, ref haveBuilding);
+        }
+        else
+        {
+            Debug.Log("Else working for onmousedown in tile script");
+        }
+        /*if(buyAndPlaceTheBuildings.GameModeCheck())
+            
+            buyAndPlaceTheBuildings.BuyAndPlaceTheBuilding(this);*/
+    }
+
+    private bool isPurchase()
+    {
+        return stateManager.currentState.type == StateType.Purchase;
     }
 
     void OnMouseEnter()

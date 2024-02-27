@@ -19,7 +19,7 @@ public class LandBaseScript : MonoBehaviour
     public bool isBought=false;
 
 
-    public TileMainScript[] children = new TileMainScript[600];
+    public Tile[] children = new Tile[600];
     
     void Start()
     {
@@ -28,7 +28,7 @@ public class LandBaseScript : MonoBehaviour
 
         for(int i=0; i<childCount ;i++)
         {
-            children[i] = transform.GetChild(i).GetComponent<TileMainScript>();
+            children[i] = transform.GetChild(i).GetComponent<Tile>();
 
         }
      
@@ -42,7 +42,7 @@ public class LandBaseScript : MonoBehaviour
 
             if(tilesThatMadeBuildable < howManyTileToMakeBuildable)
             {
-                transform.GetChild(childIndexToMakeBuildable).GetComponent<TileMainScript>().MakeBuildable();
+                transform.GetChild(childIndexToMakeBuildable).GetComponent<Tile>().MakeBuildable();
                 isMakingBuildableProccessCompleted=true;
             }
         } 

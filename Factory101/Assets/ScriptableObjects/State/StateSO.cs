@@ -30,5 +30,10 @@ public class StateSO : ScriptableObject
     {
         if (panel)
             panel.SetActive(false);
+        //If it is in Purchase state,
+        //Current building, road, vehicle should be cleared.
+        //IF it is especially the Road,
+        //home and target should be cleared.
+        //Or, we can create a boolean that is just responsible for this validation.
     }
 }

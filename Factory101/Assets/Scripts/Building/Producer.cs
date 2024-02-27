@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
 
-public class Producer : MonoBehaviour
+public class Producer : MonoBehaviour, IPurchasable
 {
     [SerializeField]
     protected int spendAmount;
@@ -12,6 +12,9 @@ public class Producer : MonoBehaviour
     protected float produceTimeRate;
 
     protected Storage storage;
+
+    [SerializeField]
+    protected PurchasableType purchasableType;
     
     void Start()
     {  
@@ -32,5 +35,15 @@ public class Producer : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public PurchasableType GetPurchasableType()
+    {
+        return purchasableType;
+    }
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
     }
 }

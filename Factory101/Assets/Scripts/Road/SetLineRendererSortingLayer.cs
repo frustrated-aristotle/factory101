@@ -10,7 +10,7 @@ public class SetLineRendererSortingLayer : MonoBehaviour
 	public string SortingLayer;
 	public int OrderInLayer;
 
-	void Awake() 
+	/*void Awake() 
 	{
 		GetComponent<Outline>().enabled = true;
 		lr = this.GetComponent<LineRenderer>();
@@ -25,5 +25,5 @@ public class SetLineRendererSortingLayer : MonoBehaviour
 	void SetLROrder(int newOrderInLayer = 0)
 	{
 		lr.sortingOrder = newOrderInLayer;
-	}
+	}*/
 }

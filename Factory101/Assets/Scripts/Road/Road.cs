@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Road : MonoBehaviour
+public class Road : MonoBehaviour, IPurchasable
 {
     public GameObject target;
     public GameObject home;
@@ -20,7 +20,7 @@ public class Road : MonoBehaviour
     public Vector2[] points;
     void Start()
     {
-        ArrangeTheCollider();
+        //ArrangeTheCollider();
     } 
     void ArrangeTheCollider()
     {
@@ -35,5 +35,15 @@ public class Road : MonoBehaviour
         
         child.GetComponent<EdgeCollider2D>().points = points;
         //child.GetComponent<EdgeCollider2D>().SetPoints( new Vector2(0, 1));
+    }
+
+    public PurchasableType GetPurchasableType()
+    {
+        return PurchasableType.Road;
+    }
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
     }
 }

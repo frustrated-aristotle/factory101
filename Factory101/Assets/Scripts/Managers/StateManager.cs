@@ -25,6 +25,13 @@ public class StateManager : MonoBehaviour
                 ChangeState(state);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //terminator, kills all state related things.
+            currentState.Deactivated();
+        }
+        
     }
 
     private void ChangeState(StateSO state)

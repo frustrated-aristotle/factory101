@@ -2,7 +2,7 @@ public enum StateType
 {
     Idle,
     Bank,
-    Building,
+    Purchase,
     Bulldoze,
     Contract,
     Info,
