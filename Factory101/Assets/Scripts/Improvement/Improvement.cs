@@ -31,7 +31,7 @@ public class Improvement : ScriptableObject , IPayment
             foreach(VehicleMovement vehicle in vehicles)
             {
                 ArrangeTheCost(vehicle.level);
-                vehicle.IncreaseImprovement();
+                //vehicle.IncreaseImprovement();
             }
         }
     

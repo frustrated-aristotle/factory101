@@ -37,7 +37,7 @@ public class Tile : MonoBehaviour
             MakeBuildable();
         }
 
-        newTP = new Vector3(transform.position.x, transform.position.y, -3);
+        //newTP = new Vector3(transform.position.x, transform.position.y, -3);
     }
 
     public void MakeBuildable()
@@ -52,13 +52,17 @@ public class Tile : MonoBehaviour
         {
             purchaseManager.OnTileClicked(transform, ref haveBuilding);
         }
-        else
+        else if (isBulldoze())
         {
-            Debug.Log("Else working for onmousedown in tile script");
+            Destroy(building.GetGameObject());
+            building = null;
+            haveBuilding = false;
         }
-        /*if(buyAndPlaceTheBuildings.GameModeCheck())
-            
-            buyAndPlaceTheBuildings.BuyAndPlaceTheBuilding(this);*/
+    }
+
+    private bool isBulldoze()
+    {
+        return stateManager.currentState.type == StateType.Bulldoze;
     }
 
     private bool isPurchase()

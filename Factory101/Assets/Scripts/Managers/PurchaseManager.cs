@@ -20,7 +20,6 @@ public class PurchaseManager : MonoBehaviour
     public void ChangePurchasable(GameObject buildable)
     {
         selectedPurchasable = buildable.GetComponent<IPurchasable>();
-        Debug.Log("Purchasable has been changed!: " + selectedPurchasable.GetGameObject().name);
     }
 
     //When the state is changed, selected buildable should be cleared instantly.
@@ -33,7 +32,7 @@ public class PurchaseManager : MonoBehaviour
     {
         Vector3 pos = tr.position;
         //Make it visible by changing its Z position.
-        pos.z = -1;
+        pos.z = -3;
         if (selectedPurchasable != null)
         {
             PurchasableType type = selectedPurchasable.GetPurchasableType();
@@ -47,11 +46,25 @@ public class PurchaseManager : MonoBehaviour
             }
             else if (type != PurchasableType.Vehicle && hasBuilding == false)
             {
-                Debug.Log("Huh?");
                 GameObject building =  Instantiate(selectedPurchasable.GetGameObject(), pos, quaternion.identity);
                 tr.GetComponent<Tile>().building = building.GetComponent<IPurchasable>();
                 hasBuilding = true;
             }
         }
+    }
+
+    public GameObject OnTileClicked(Vector3 start)
+    {
+        Vector3 temp = start;
+        temp.z = -3;
+        if (selectedPurchasable != null)
+        {
+            PurchasableType type = selectedPurchasable.GetPurchasableType();
+            if (type == PurchasableType.Vehicle)
+            {
+                return Instantiate(selectedPurchasable.GetGameObject(), temp, quaternion.identity);
+            }
+        }
+        return null;
     }
 }

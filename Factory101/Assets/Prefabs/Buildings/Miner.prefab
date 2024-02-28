@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 7491549017768623181}
   - component: {fileID: 7427454462418256258}
   - component: {fileID: 7809133826076962821}
-  - component: {fileID: 7013887348871729240}
-  - component: {fileID: 7258283252786533219}
   - component: {fileID: 6792084143465975082}
   - component: {fileID: 8672288456810388398}
   - component: {fileID: -6303095893814818418}
@@ -103,68 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03be0386428cf9f4798478f553dbd99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &7013887348871729240
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645165807764331017}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
---- !u!58 &7258283252786533219
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7645165807764331017}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.19
+  source: 0
+  outcome: 0
 --- !u!114 &6792084143465975082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,11 +162,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spendAmount: 0
-  createAmount: 0
-  producerType: 0
-  gm: {fileID: 0}
-  genBehTxt: {fileID: 0}
-  produceTimeRate: 3
+  createAmount: 10
+  produceTimeRate: 1
+  purchasableType: 0
 --- !u!114 &4804392402458108082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,4 +184,4 @@ MonoBehaviour:
   pair2: {fileID: 0}
   pair3: {fileID: 0}
   pair4: {fileID: 0}
-  rb: {fileID: 7161259613121182445, guid: 22c29169207cbfb4492cc6d0774e8a12, type: 3}
+  rb: {fileID: 0}

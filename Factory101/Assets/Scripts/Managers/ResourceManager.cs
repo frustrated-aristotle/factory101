@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,25 @@ public class ResourceManager : MonoBehaviour
     public float Money { get=>money;}
 
     public List<int> resourceAmounts;
+    public int resourceAmount;
+
+    private UIManager uiManager;
+    private void Start()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+        uiManager.UpdateMoney(money.ToString());
+    }
 
     public void ResourceAdded(ProductType type, int amount)
     {
         int i = (int)type;
         resourceAmounts[i] += amount;
+    }
+
+    public void ResourceAdded(int amount)
+    {
+        resourceAmount += amount;
+        uiManager.UpdateResource(resourceAmount.ToString());
     }
 
     public void ResourceRemoved(ProductType type, int amount)
@@ -21,15 +36,21 @@ public class ResourceManager : MonoBehaviour
         resourceAmounts[i] -= amount;
     }
 
+    public void ResourceRemoved(int amount)
+    {
+        resourceAmount -= amount;
+        uiManager.UpdateResource(resourceAmount.ToString());
+    }
     public void MoneyGained(float addition)
     {
         money += addition;
+        uiManager.UpdateMoney(money.ToString());
     }
 
     public void MoneyLoosed(float addition)
     {
         money -= addition;
-        Debug.Log("Money : " + money);
+        uiManager.UpdateMoney(money.ToString());
     }
 
     public void ManipulateResource(ProductType type, int amount)

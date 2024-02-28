@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Deal
   m_EditorClassIdentifier: 
   dealerName: Wow-haaaaay-tee
-  orderedQuantity: 0
-  profit: 0
+  orderedQuantity: 15
+  profit: 100
   loss: 150
   dueTime: 3
   type: 0

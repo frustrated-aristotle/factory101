@@ -21,7 +21,7 @@ public class OnMouseDownV : MonoBehaviour
         Debug.Log("Go: " + vehicle + " --- " +this.gameObject.name); 
     }
     void OnMouseDown()
-    {
+    {/*
         if(CheckIfThePlayerCanBuy())
         {
             //Assign vehicle's target and home
@@ -31,7 +31,7 @@ public class OnMouseDownV : MonoBehaviour
             Instantiate(vehicle, TP(), Quaternion.identity);
             Debug.Log("Home: " + vehicle.GetComponent<VehicleMovement>().realHome);
             AddVehicle();
-        }
+        }*/
     }
 
     bool CheckIfThePlayerCanBuy()
@@ -45,12 +45,12 @@ public class OnMouseDownV : MonoBehaviour
     }
     Vector3 TP()
     {
-        transformPos = vehicle.GetComponent<VehicleMovement>().realHome.transform.position;
+        //transformPos = vehicle.GetComponent<VehicleMovement>().realHome.transform.position;
         return transformPos;
     }
     public void AddVehicle()
     {
-        vehicle.GetComponent<VehicleMovement>().realHome.GetComponent<Building>().AddVehicle(vehicle);
-        vehicle.GetComponent<VehicleMovement>().realTarget.GetComponent<Building>().AddVehicle(vehicle);
+        // vehicle.GetComponent<VehicleMovement>().realHome.GetComponent<Building>().AddVehicle(vehicle);
+        // vehicle.GetComponent<VehicleMovement>().realTarget.GetComponent<Building>().AddVehicle(vehicle);
     }
 }

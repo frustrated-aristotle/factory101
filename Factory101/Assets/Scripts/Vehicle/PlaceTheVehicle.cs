@@ -10,9 +10,9 @@ public class PlaceTheVehicle : MonoBehaviour
     
     public void AssignHomeAndTarget(GameObject road)
     {
-        vehicleToPlace.GetComponent<VehicleMovement>().realHome   = road.GetComponent<Road>().home;
-        vehicleToPlace.GetComponent<VehicleMovement>().realTarget = road.GetComponent<Road>().target;
+        // vehicleToPlace.GetComponent<VehicleMovement>().realHome   = road.GetComponent<Road>().home;
+        // vehicleToPlace.GetComponent<VehicleMovement>().realTarget = road.GetComponent<Road>().target;
         Debug.Log("name of veh: "+vehicleToPlace.name);
-        vehicleToPlace.GetComponent<VehicleMovement>().CheckRealHomeAndTarget();
+        //vehicleToPlace.GetComponent<VehicleMovement>().CheckRealHomeAndTarget();
     }
 }

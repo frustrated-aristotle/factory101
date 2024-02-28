@@ -46,7 +46,7 @@ public class VehicleCollide : MonoBehaviour
     private void CheckIfItIsFirstCreated()
     {
         if(vehicleMovement.isCreatedFirstTime)
-        vehicleMovement.UnignoreTheCollider();
+        //vehicleMovement.UnignoreTheCollider();
         vehicleMovement.isCreatedFirstTime = false;
     }
 

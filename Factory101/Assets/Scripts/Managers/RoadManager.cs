@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -18,6 +19,9 @@ public class RoadManager : MonoBehaviour
     public Transform home;
     public Transform target;
 
+    public List<LineRenderer> roads = new List<LineRenderer>();
+
+    public Transform parent;
     /// <summary>
     /// Takes a home position and a target position to create the building in between.
     /// </summary>
@@ -27,8 +31,12 @@ public class RoadManager : MonoBehaviour
         roadTemplate.SetPosition(0, GetPos(home));
         roadTemplate.SetPosition(1, GetPos(target));
         roadTemplate.useWorldSpace = false;
-
-        Instantiate(roadTemplate, Vector3.zero, quaternion.identity);
+        
+        LineRenderer instantiated =  Instantiate(roadTemplate, Vector3.zero, quaternion.identity);
+        instantiated.GetComponent<Road>().home = home.gameObject;
+        instantiated.GetComponent<Road>().target = target.gameObject;
+        instantiated.transform.SetParent(parent);
+        roads.Add(instantiated);
         ClearNodes();
     }
 
@@ -52,24 +60,34 @@ public class RoadManager : MonoBehaviour
         }
         else if (target == null)
         {
-            if (CheckOrder(node))
+            if (CheckOrder(node) && home != node)
             {
                 target = node;
             }
             //May show a text says: "Select the target tile."
         }
         //Build road when the state is not changed and both home and target has been selected.
-        if (home && target && CheckState())
+        if (home && target && CheckState() && !IsExist())
         {
-            //if (CheckOrder())
+            BuildRoad();
+        }
+    }
+
+    private bool IsExist()
+    {
+        foreach (var road in roads)
+        {
+            if (road.GetComponent<Road>().home.transform == home)
             {
-                BuildRoad();
-            }
-            //else
-            {
-              //  ClearNodes();
+                if (road.GetComponent<Road>().target.transform == target)
+                {
+                    Debug.Log("It exists.");
+                    ClearNodes();
+                    return true;
+                }
             }
         }
+        return false;
     }
 
     //We only can build roads in between two nodes at the same level or home is one more than target node.
@@ -93,9 +111,9 @@ public class RoadManager : MonoBehaviour
         int targetType = (int)node.GetComponent<Tile>().building.GetPurchasableType();
         if (homeType <= targetType)
         {
-            Debug.Log("Target type: " + targetType);
             return true;
         }
+        ClearNodes();
         return false;
     }
     public void ClearNodes()

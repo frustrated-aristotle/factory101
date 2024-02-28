@@ -31,7 +31,6 @@ public class StateManager : MonoBehaviour
             //terminator, kills all state related things.
             currentState.Deactivated();
         }
-        
     }
 
     private void ChangeState(StateSO state)

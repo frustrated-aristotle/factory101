@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3228080561338396398}
   - component: {fileID: 8589630384071098925}
-  - component: {fileID: 6766587432922932839}
-  - component: {fileID: 892914272055364551}
   - component: {fileID: 4857782120054057397}
   - component: {fileID: 2247447736087618105}
   - component: {fileID: 5970974693464504696}
@@ -91,68 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6766587432922932839
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990476593662066591}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.19
---- !u!50 &892914272055364551
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2990476593662066591}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!114 &4857782120054057397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916414571b4aa394f87717443ae1cf87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spendAmount: 0
-  createAmount: 0
-  produceTimeRate: 0
+  spendAmount: 10
+  createAmount: 5
+  produceTimeRate: 1
   purchasableType: 1
 --- !u!114 &-1850717739808971216
 MonoBehaviour:
