@@ -24,10 +24,12 @@ public class Tile : MonoBehaviour
 
     private StateManager stateManager;
     private PurchaseManager purchaseManager;
+    private ResourceManager resourceManager;
 
     public IPurchasable building;
     void Start()
     {
+        resourceManager = FindObjectOfType<ResourceManager>();
         purchaseManager = FindObjectOfType<PurchaseManager>();
         stateManager = FindObjectOfType<StateManager>();
         rend = GetComponent<Renderer>();       
@@ -52,9 +54,10 @@ public class Tile : MonoBehaviour
         {
             purchaseManager.OnTileClicked(transform, ref haveBuilding);
         }
-        else if (isBulldoze())
+        else if (isBulldoze()  && isBuildable)
         {
             Destroy(building.GetGameObject());
+            resourceManager.MoneyGained(building.GetCost());
             building = null;
             haveBuilding = false;
         }

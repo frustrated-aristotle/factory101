@@ -15,7 +15,8 @@ public class Producer : MonoBehaviour, IPurchasable
 
     [SerializeField]
     protected PurchasableType purchasableType;
-    
+
+    [SerializeField] public float cost; 
     void Start()
     {  
         storage=GetComponent<Storage>();
@@ -40,6 +41,11 @@ public class Producer : MonoBehaviour, IPurchasable
     public PurchasableType GetPurchasableType()
     {
         return purchasableType;
+    }
+
+    public float GetCost()
+    {
+        return cost;
     }
 
     public GameObject GetGameObject()

@@ -31,7 +31,9 @@ public class RoadManager : MonoBehaviour
         roadTemplate.SetPosition(0, GetPos(home));
         roadTemplate.SetPosition(1, GetPos(target));
         roadTemplate.useWorldSpace = false;
-        
+        roadTemplate.transform.GetChild(1).GetComponent<LineRenderer>().SetPosition(0, GetPos(home));
+        roadTemplate.transform.GetChild(1).GetComponent<LineRenderer>().SetPosition(1, GetPos(target));
+        roadTemplate.transform.GetChild(1).gameObject.SetActive(false);
         LineRenderer instantiated =  Instantiate(roadTemplate, Vector3.zero, quaternion.identity);
         instantiated.GetComponent<Road>().home = home.gameObject;
         instantiated.GetComponent<Road>().target = target.gameObject;
@@ -77,15 +79,19 @@ public class RoadManager : MonoBehaviour
     {
         foreach (var road in roads)
         {
-            if (road.GetComponent<Road>().home.transform == home)
+            if (road.gameObject.activeSelf)
             {
-                if (road.GetComponent<Road>().target.transform == target)
+                if (road.GetComponent<Road>().home.transform == home)
                 {
-                    Debug.Log("It exists.");
-                    ClearNodes();
-                    return true;
+                    if (road.GetComponent<Road>().target.transform == target)
+                    {
+                        Debug.Log("It exists.");
+                        ClearNodes();
+                        return true;
+                    }
                 }
             }
+
         }
         return false;
     }

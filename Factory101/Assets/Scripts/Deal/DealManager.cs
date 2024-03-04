@@ -51,7 +51,6 @@ public class DealManager : MonoBehaviour
         remainedTimes.Add(5);
         remainedTimes.Add(7);
         ShowDeals();
-        //Just for try
     }
 
     // Update is called once per frame
@@ -64,13 +63,13 @@ public class DealManager : MonoBehaviour
     void CountDown()
     {
         remainedTime -= Time.deltaTime;
-        remainedTimeTxt.text = remainedTime.ToString();
-        uiManager.UpdateTimer(remainedTime.ToString());
+        
         if (remainedTime <= 0)
         {
             if (!currentDeal.isDone && !IsStorageEnough())
             {
                 FailDeal();
+                remainedTime = 0;
             }  
             else if (IsStorageEnough())
             {
@@ -79,25 +78,10 @@ public class DealManager : MonoBehaviour
             else
             {
                 currentDeal = null;
+                remainedTime = 0;
             }
         }
-        /*
-        foreach (DealSO deal in currentDeals)
-        {
-            if (deal)
-            {
-                int index = (int)deal.type;
-                remainedTimes[index] -= Time.deltaTime;
-                remainedTimeTxts[index].text = remainedTimes[index].ToString();
-                if ( remainedTimes[index] <= 0)
-                {
-                    if (!deal.isDone)
-                    {
-                        FailDeal(index);
-                    }
-                }
-            }
-        }*/
+        uiManager.UpdateTimer(remainedTime.ToString());
     }
 
     private bool IsStorageEnough()
@@ -119,7 +103,17 @@ public class DealManager : MonoBehaviour
         {
             currentDeal = deal;
             remainedTime = currentDeal.dueTime;
-            Debug.Log("New Deal Sellected!");
+            int index = deal.dealLevel;
+            uiManager.takeButtons[index].text = "Send";
+        }
+        else if (currentDeal == deal)
+        {
+            //Out player is trying to send his goods to dealer.
+            //If there is enough goods in his warehouse, then it is good to go.
+            if (IsStorageEnough())
+            {
+                DoneDeal();
+            }
         }
         else
         {
@@ -131,6 +125,8 @@ public class DealManager : MonoBehaviour
         Debug.Log("Failed");
         float addition = currentDeal.loss;
         resourceManager.MoneyLoosed(addition);
+        int index = currentDeal.dealLevel;
+        uiManager.takeButtons[index].text = "Take";
         currentDeal = null;
     }
     
@@ -140,6 +136,8 @@ public class DealManager : MonoBehaviour
         Debug.Log("Done Deal!");
         float addition = currentDeal.profit;
         resourceManager.MoneyGained(addition);
+        int index = currentDeal.dealLevel;
+        uiManager.takeButtons[index].text = "Take";
         currentDeal = null;
         //Gain money
         //Make the delivered quantity equals to zero
@@ -153,7 +151,7 @@ public class DealManager : MonoBehaviour
             if (deals[i])
             {
                 quantityTxts[i].text = deals[i].orderedQuantity.ToString();
-                dueTimeTxts[i].text = deals[i].dueTime.ToString();
+                dueTimeTxts[i].text = deals[i].dueTime.ToString() + " sec.";
                 profitTxts[i].text = deals[i].profit.ToString();
                 lossTxts[i].text = deals[i].loss.ToString();
             }

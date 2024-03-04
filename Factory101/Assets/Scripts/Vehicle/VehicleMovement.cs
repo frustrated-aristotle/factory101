@@ -109,15 +109,6 @@ public class VehicleMovement : MonoBehaviour, IPurchasable
     {
         storage.SourceArrived(home.GetComponent<Storage>().VehicleLoaded(capacity));
     }
-    /*
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if(col.gameObject.tag == "Road" || col.gameObject.tag == "Vehicle" || col.gameObject.tag == "Tile")
-        {
-            Physics2D.IgnoreCollision(col.collider, GetComponent<Collider2D>());
-        }
-    }*/
-
     private int LoadQuantity()
     {
         int i;
@@ -147,81 +138,37 @@ public class VehicleMovement : MonoBehaviour, IPurchasable
             currentTarget = target;
         }
     }
-/*    
-    public void IgnoreTheCollider()
-    {
-        Physics2D.IgnoreCollision(home.GetComponent<Collider2D>() , GetComponent<Collider2D>(), true);
-    }
 
-    public void UnignoreTheCollider()
-    {
-        Physics2D.IgnoreCollision(home.GetComponent<Collider2D>() , GetComponent<Collider2D>(), false);
-    }
-    
-    public void ChangeTarget()
-    {
-        arranger = arranger * -1;
-        helder=target;
-        target=home;
-        home=helder;
-    }
+    #region Bulldoze State
 
-    //Sometimes we click higher buildings before their affairs. When we do it, vehicle can not work correctly.
-
-    public void CheckRealHomeAndTarget()
+    private void OnMouseDown()
     {
-        Debug.Log("Checking");
-        /*if(realHome.GetComponent<Producer>().producerType > realTarget.GetComponent<Producer>().producerType)
+        if (FindObjectOfType<StateManager>().currentState.type == StateType.Bulldoze)
         {
-            helderForCheckReals = realTarget;
-            realTarget = realHome;
-            realHome=helderForCheckReals;
+            Destroy(this.gameObject);
+            //NEED TO UPDATE ITS ROAD'S VEHICLE COLLECTION
         }
     }
 
-    public void IncreaseImprovement()
+    #endregion
+#region IPurchasable
+
+
+
+    public PurchasableType GetPurchasableType()
     {
-        switch(level)
-        {
-            case 1:
-            ALevelThing();
-            break;
-            case 2:
-            ALevelThing();
-            break;
-        }
+        return PurchasableType.Vehicle;
     }
 
-    public void ALevelThing()
+    public float GetCost()
     {
-        if(CostDeal())
-        {
-            Debug.Log("Arkadaşım improvement gerçekleşti.");
-            level++;
-            moveSpeed += speed/4;
-        }
+        return cost;
     }
 
-    public bool CostDeal()
+    public GameObject GetGameObject()
     {
-        if((playerAsFactory.money - imp.impCost) >=0)
-        {
-            playerAsFactory.money -= imp.impCost;
-            return true;
-        }
-        else
-        {
-            Debug.Log("Money is not enough");
-        }
-        return false;
-    }*/
-public PurchasableType GetPurchasableType()
-{
-    return PurchasableType.Vehicle;
-}
+        return this.gameObject;
+    }
+#endregion
 
-public GameObject GetGameObject()
-{
-    return this.gameObject;
-}
 }

@@ -23,4 +23,6 @@ public class DealSO : ScriptableObject
 
     [HideInInspector] 
     public bool isDone = false;
+
+    public int dealLevel;
 }

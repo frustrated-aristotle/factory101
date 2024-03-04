@@ -171,6 +171,7 @@ MonoBehaviour:
   createAmount: 5
   produceTimeRate: 1
   purchasableType: 1
+  cost: 750
 --- !u!114 &-1850717739808971216
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -185,3 +185,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c950e3084cb831b448b9dd671ed95e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 1500

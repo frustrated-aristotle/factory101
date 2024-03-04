@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timerTxt;
     [SerializeField] private TextMeshProUGUI moneyTxt;
     [SerializeField] private TextMeshProUGUI resourceTxt;
+
+    public List<TextMeshProUGUI> takeButtons;
     
     [Serializable]
     public struct Panel
@@ -34,8 +36,20 @@ public class UIManager : MonoBehaviour
     public void UpdateTimer(string time)
     {
         string[] timeStr = time.Split(",");
-        Debug.Log(timeStr[0]);
-        timerTxt.text = timeStr[0]+","+timeStr[1][0]+timeStr[1][0];
+        string i;
+        if (timeStr[0].Length==1)
+        {
+            i = "0" + timeStr[0];
+        }
+        else
+        {
+            i = timeStr[0];
+        }
+
+        if (timeStr.Length > 1 )
+        {
+            timerTxt.text = i + ":" + timeStr[1][0] + "0"; //timeStr[1][1];
+        }
     }
 
     public void UpdateMoney(string money)

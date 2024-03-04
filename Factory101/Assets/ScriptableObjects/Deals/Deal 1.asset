@@ -24,3 +24,4 @@ MonoBehaviour:
   profitTxt: {fileID: 0}
   lossTxt: {fileID: 0}
   isDone: 0
+  dealLevel: 1

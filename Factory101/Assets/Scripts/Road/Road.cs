@@ -8,10 +8,6 @@ public class Road : MonoBehaviour, IPurchasable
     public GameObject target;
     public GameObject home;
     
-    public GameObject instHomePos1;
-    public GameObject instHomePos2;
-
-    public GameObject child;
 
     float m;
     float rotationAmount;
@@ -25,9 +21,16 @@ public class Road : MonoBehaviour, IPurchasable
 
     private StateManager stateManager;
     private PurchaseManager purchaseManager;
+    private ResourceManager resourceManager;
+
+    [SerializeField] private float cost;
+
+    public List<GameObject> vehicles;
     void Start()
     {
+        stateManager = FindObjectOfType<StateManager>();
         purchaseManager = FindObjectOfType<PurchaseManager>();
+        resourceManager = FindObjectOfType<ResourceManager>();
         lineRenderer = GetComponent<LineRenderer>();
         polygonCollider = GetComponent<PolygonCollider2D>();
         UpdateCollider();
@@ -48,6 +51,7 @@ public class Road : MonoBehaviour, IPurchasable
         Vector2 perpendicular = new Vector2(-direction.y, direction.x); 
         
         float thickness = 0.025f;
+        thickness = 0.05f;
 
         points[0] = start2D + thickness * perpendicular;
         points[1] = end2D + thickness * perpendicular;
@@ -55,26 +59,69 @@ public class Road : MonoBehaviour, IPurchasable
         points[3] = start2D - thickness * perpendicular;
 
         polygonCollider.points = points;
+
+        LineRenderer outLine = new LineRenderer();
+        outLine = lineRenderer;
+        outLine.sharedMaterial.SetColor("_Color", Color.gray);
+
     }
 
+  
 
-    public PurchasableType GetPurchasableType()
-    {
-        return PurchasableType.Road;
-    }
-
-    public GameObject GetGameObject()
-    {
-        return this.gameObject;
-    }
 
     private void OnMouseDown()
     {
-        GameObject vehicle = purchaseManager.OnTileClicked(lineRenderer.GetPosition(0));
-        GameObject temp = home.GetComponent<Tile>().building.GetGameObject();
-        GameObject tempT = target.GetComponent<Tile>().building.GetGameObject();
-        vehicle.GetComponent<VehicleMovement>().home = temp;
-        vehicle.GetComponent<VehicleMovement>().target = tempT;
-        vehicle.GetComponent<VehicleMovement>().LoadVehicle();
+        if (stateManager.currentState.type == StateType.Purchase)
+        {
+            GameObject vehicle = purchaseManager.OnTileClicked(lineRenderer.GetPosition(0));
+            GameObject temp = home.GetComponent<Tile>().building.GetGameObject();
+            GameObject tempT = target.GetComponent<Tile>().building.GetGameObject();
+            vehicle.GetComponent<VehicleMovement>().home = temp;
+            vehicle.GetComponent<VehicleMovement>().target = tempT;
+            vehicle.GetComponent<VehicleMovement>().LoadVehicle();
+            vehicles.Add(vehicle);
+        }
+        else if (stateManager.currentState.type == StateType.Bulldoze)
+        {
+            foreach (var vehicle in vehicles)
+            {
+                resourceManager.MoneyGained(vehicle.GetComponent<IPurchasable>().GetCost());
+                Destroy(vehicle);
+            }
+            vehicles.Clear();
+            resourceManager.MoneyGained(cost);
+            home = null;
+            target = null;
+            lineRenderer = null;
+            gameObject.SetActive(false);
+        }
     }
+
+    private void OnMouseEnter()
+    {
+        transform.GetChild(1).gameObject.SetActive(true);
+    }
+
+    private void OnMouseExit()
+    {
+        transform.GetChild(1).gameObject.SetActive(false);
+    }
+    #region IPurchasable
+     
+         public PurchasableType GetPurchasableType()
+         {
+             return PurchasableType.Road;
+         }
+     
+         public float GetCost()
+         {
+             return cost;
+         }
+     
+         public GameObject GetGameObject()
+         {
+             return this.gameObject;
+         }
+     
+         #endregion
 }
