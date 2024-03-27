@@ -46,13 +46,14 @@ public class Tile : MonoBehaviour
     {
         rend.material = matBuildable;
         matOrg = matBuildable;
+        isBuildable = true;
     }
 
     void OnMouseDown()
     {
         if (isPurchase() && isBuildable)
         {
-            purchaseManager.OnTileClicked(transform, ref haveBuilding);
+            purchaseManager.OnTileClicked(transform, ref haveBuilding, ref isBuildable);
         }
         else if (isBulldoze()  && isBuildable)
         {
@@ -60,6 +61,11 @@ public class Tile : MonoBehaviour
             resourceManager.MoneyGained(building.GetCost());
             building = null;
             haveBuilding = false;
+        }
+        else if (!isBuildable)
+        {
+            Debug.Log("Not buildable");
+            purchaseManager.OnTileClicked(this);
         }
     }
 

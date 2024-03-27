@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c67454ce9e9fa44188af4c929c639d7, type: 3}
+  m_Name: Deals
+  m_EditorClassIdentifier: 
+  deals:
+  - orderedQuantity: 10
+    profit: 400
+    loss: 500
+    dueTime: 3
+  - orderedQuantity: 15
+    profit: 425
+    loss: 525
+    dueTime: 3.5
+  - orderedQuantity: 20
+    profit: 475
+    loss: 575
+    dueTime: 4
+  - orderedQuantity: 25
+    profit: 500
+    loss: 600
+    dueTime: 4.25
+  - orderedQuantity: 30
+    profit: 550
+    loss: 650
+    dueTime: 4.5
+  - orderedQuantity: 39
+    profit: 650
+    loss: 750
+    dueTime: 5
+  - orderedQuantity: 50
+    profit: 750
+    loss: 850
+    dueTime: 6
+  - orderedQuantity: 65
+    profit: 800
+    loss: 900
+    dueTime: 7
+  - orderedQuantity: 80
+    profit: 1050
+    loss: 1150
+    dueTime: 8
+  - orderedQuantity: 105
+    profit: 1300
+    loss: 1500
+    dueTime: 10
+  - orderedQuantity: 120
+    profit: 1450
+    loss: 1650
+    dueTime: 11
+  - orderedQuantity: 150
+    profit: 1500
+    loss: 1700
+    dueTime: 12
+  - orderedQuantity: 170
+    profit: 1750
+    loss: 2000
+    dueTime: 13
+  - orderedQuantity: 200
+    profit: 2000
+    loss: 2250
+    dueTime: 15
+  - orderedQuantity: 240
+    profit: 2250
+    loss: 2500
+    dueTime: 17
+  - orderedQuantity: 275
+    profit: 2500
+    loss: 2750
+    dueTime: 20
+  - orderedQuantity: 300
+    profit: 3000
+    loss: 3250
+    dueTime: 24
+  - orderedQuantity: 325
+    profit: 3500
+    loss: 3750
+    dueTime: 27
+  - orderedQuantity: 350
+    profit: 4000
+    loss: 4500
+    dueTime: 30
+  - orderedQuantity: 375
+    profit: 4500
+    loss: 5000
+    dueTime: 33
+  - orderedQuantity: 400
+    profit: 5000
+    loss: 5500
+    dueTime: 35
+  - orderedQuantity: 425
+    profit: 5250
+    loss: 5500
+    dueTime: 37
+  - orderedQuantity: 450
+    profit: 5750
+    loss: 6000
+    dueTime: 40
+  - orderedQuantity: 475
+    profit: 6250
+    loss: 6500
+    dueTime: 43

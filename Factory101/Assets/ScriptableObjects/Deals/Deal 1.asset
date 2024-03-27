@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dealerName: Wow-haaaaay-tee
   orderedQuantity: 30
-  profit: 300
-  loss: 350
+  profit: 550
+  loss: 650
   dueTime: 5
   type: 1
   dealerNameTxt: {fileID: 0}

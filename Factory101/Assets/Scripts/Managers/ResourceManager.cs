@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
+    [SerializeField]
     private float money;
     public float Money { get=>money;}
 
@@ -43,6 +44,7 @@ public class ResourceManager : MonoBehaviour
     }
     public void MoneyGained(float addition)
     {
+        Debug.Log("money gained");
         money += addition;
         uiManager.UpdateMoney(money.ToString());
     }

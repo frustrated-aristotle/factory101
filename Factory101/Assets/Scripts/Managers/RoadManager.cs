@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
@@ -22,6 +23,13 @@ public class RoadManager : MonoBehaviour
     public List<LineRenderer> roads = new List<LineRenderer>();
 
     public Transform parent;
+
+    private ResourceManager resourceManager;
+    private void Start()
+    {
+        resourceManager = FindObjectOfType<ResourceManager>();
+    }
+
     /// <summary>
     /// Takes a home position and a target position to create the building in between.
     /// </summary>
@@ -69,10 +77,16 @@ public class RoadManager : MonoBehaviour
             //May show a text says: "Select the target tile."
         }
         //Build road when the state is not changed and both home and target has been selected.
-        if (home && target && CheckState() && !IsExist())
+        if (home && target && CheckState() && !IsExist() && CanBuy())
         {
+            resourceManager.MoneyLoosed(roadTemplate.GetComponent<IPurchasable>().GetCost());
             BuildRoad();
         }
+    }
+
+    private bool CanBuy()
+    {
+        return resourceManager.Money >= roadTemplate.GetComponent<IPurchasable>().GetCost();
     }
 
     private bool IsExist()

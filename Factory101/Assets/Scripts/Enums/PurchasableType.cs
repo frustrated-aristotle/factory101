@@ -5,4 +5,5 @@ public enum PurchasableType
     Storage = 2,
     Road = 3,
     Vehicle = 4,
+    Buildable = 5,
 }

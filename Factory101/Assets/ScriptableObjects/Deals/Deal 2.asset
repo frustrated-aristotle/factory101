@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e1423c2af45744ca08d9116f698b8a, type: 3}
   m_Name: Deal 2
   m_EditorClassIdentifier: 
-  dealerName: Wow-haaaaay-tee
+  dealerName: "          \r\n"
   orderedQuantity: 50
-  profit: 450
-  loss: 500
+  profit: 750
+  loss: 850
   dueTime: 7
   type: 2
   dealerNameTxt: {fileID: 0}
